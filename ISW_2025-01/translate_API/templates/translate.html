@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Traductor Azure</title>
+</head>
+<body>
+    <h1>Traductor con Azure Translate</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        <label for="text">Texto a traducir:</label><br>
+        <textarea name="text" rows="5" cols="50">{{ request.POST.text }}</textarea><br><br>
+
+        <label for="to_lang">Idioma destino (por ejemplo, 'es', 'en', 'fr'):</label><br>
+        <input type="text" name="to_lang" value="{{ request.POST.to_lang }}"><br><br>
+
+        <button type="submit">Traducir</button>
+    </form>
+
+    {% if translated_text %}
+        <h2>Texto traducido:</h2>
+        <p>{{ translated_text }}</p>
+    {% endif %}
+
+    {% if error_message %}
+        <h3 style="color: red;">{{ error_message }}</h3>
+    {% endif %}
+</body>
+</html>

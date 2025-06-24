@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}Ingresar Fuentes{% endblock %}
+
+<head>
+    
+    {% block styles %}
+    <style>
+
+        main{
+            padding-top: 8vh;
+            min-height: 70vh; 
+        }
+
+        .container {
+            max-width: 500px;
+            background-color: white;
+            font-size: 15px;
+
+            padding: 20px;
+            padding-top: 40px;
+
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(233, 245, 204, 0.1);
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            margin-top: 10px;
+            display: block;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #88ae4c;
+            color: #f0efb3;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #f0efb3;
+            color: #88ae4c;
+        }
+
+    </style>
+    {% endblock %}
+</head>
+
+{% block content %}
+<main>
+
+    {% if user.is_authenticated %}
+    <div class="container">
+        <h1>Agregar Fuente</h1>
+        
+        <form method="post">
+            {% csrf_token %}
+            
+            <label for="{{ form.link.id_for_label }}">{{ form.link.label }}</label>
+            {{ form.link }}
+            {{ form.link.errors }}
+        
+            <label for="{{ form_cat.category.id_for_label }}">{{ form_cat.category.label }}</label>
+            {{ form_cat.category }}
+            {{ form_cat.category.errors }}
+        
+            <button type="submit">Agregar</button>
+        </form>
+        
+        {% if messages %}
+            <div class="message">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        </div>
+
+
+    {% else %}
+        <h5>Inicie sesión para ingresar al ingreso de fuentes</h5>
+        <a href="{% url 'login' %}" class="boton">Login</a>
+
+    {% endif %}
+    </div>
+
+</main>
+{% endblock %}

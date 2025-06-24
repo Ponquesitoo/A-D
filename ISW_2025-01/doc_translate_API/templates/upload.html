@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Subir y traducir documento</title>
+</head>
+<body>
+  <h1>Subir documento para traducir</h1>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="documento" required>
+    <button type="submit">Subir y traducir</button>
+  </form>
+
+  {% if translated_url %}
+    <h2>Archivo traducido:</h2>
+    <p><strong>{{ archivo }}</strong></p>
+    <a href="{{ translated_url }}" target="_blank">Ver o descargar traducido</a>
+  {% endif %}
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Subir y traducir documento</title>
+</head>
+<body>
+  <h1>Subir documento para traducir</h1>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="documento" required>
+    <button type="submit">Subir y traducir</button>
+  </form>
+
+  {% if translated_url %}
+    <h2>Archivo traducido:</h2>
+    <p><strong>{{ archivo }}</strong></p>
+    <a href="{{ translated_url }}" target="_blank">Ver o descargar traducido</a>
+  {% endif %}
+</body>
+</html>
+

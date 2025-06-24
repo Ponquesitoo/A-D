@@ -1,0 +1,7 @@
+.env
+*.pyc
+__pycache__/
+
+# ignorar entorno virtual
+ev_vigifia/
+monito/
