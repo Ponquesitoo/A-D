@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import HttpResponse
-from enterSources.models import Sources, Categories, Cat_x_Source
+from enterSources.models import Sources, Categories, CatSource
 from enterSources.forms import BulletinRequest, CatRequest
 from django.contrib.auth.decorators import permission_required
 

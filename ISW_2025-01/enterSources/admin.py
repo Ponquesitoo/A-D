@@ -1,5 +1,5 @@
 from django.contrib import admin
-from enterSources.models import Sources, Cat_x_Source, Categories
+from enterSources.models import Sources, CatSource, Categories
 
 # Register your models here.
 
@@ -16,4 +16,4 @@ class CategoriesAdmin(admin.ModelAdmin):
 
 admin.site.register(Sources, SourcesAdmin)
 admin.site.register(Categories, CategoriesAdmin)
-admin.site.register(Cat_x_Source)
+admin.site.register(CatSource)

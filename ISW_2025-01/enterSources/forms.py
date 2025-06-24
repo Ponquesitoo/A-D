@@ -1,5 +1,5 @@
 from django import forms
-from .models import Sources, Categories, Cat_x_Source
+from .models import Sources, Categories, CatSource
 
 class BulletinRequest(forms.ModelForm):
     class Meta:
@@ -13,6 +13,6 @@ class CatRequest(forms.ModelForm):
 
 class CxSRequest(forms.ModelForm):
     class Meta:
-        model = Cat_x_Source
+        model = CatSource
         fields = ['source', 'category']
         

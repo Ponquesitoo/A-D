@@ -34,7 +34,7 @@ class Categories(models.Model):
         return "Categoria/s: %s." % (self.category)
 
 #  Fixes ManyToMany relationship
-class Cat_x_Source(models.Model):
+class CatSource(models.Model):
     source = models.ForeignKey(Sources, on_delete=models.CASCADE)
     category = models.ForeignKey(Categories, on_delete=models.CASCADE)
 
