@@ -26,8 +26,8 @@ def service(request):
 
             for cat in cat_list:
                 cat = cat.strip()
-                category, created = Categories.objects.get_or_create(category=cat)
-                Cat_x_Source.objects.create(source=source, category=category)
+                category, _ = Categories.objects.get_or_create(category=cat)
+                CatSource.objects.create(source=source, category=category)
 
             
             messages.success(request, 'Fuente agregada exitosamente.')
@@ -54,7 +54,7 @@ def select(request):
             try:
                 category = Categories.objects.get(category__icontains=category_name)
 
-                cat_sources = Cat_x_Source.objects.filter(category=category)
+                cat_sources = CatSource.objects.filter(category=category)
 
                 sources = Sources.objects.filter(id__in=cat_sources.values('source'))
 
